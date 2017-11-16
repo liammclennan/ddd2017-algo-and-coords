@@ -5,7 +5,8 @@
   "main": "idea2.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "salon": "ts-node shell.ts https://www.salon.com/2013/05/11/the_modern_history_of_swearing_where_all_the_dirtiest_words_come_from/"
+    "salon": "ts-node shell.ts https://www.salon.com/2013/05/11/the_modern_history_of_swearing_where_all_the_dirtiest_words_come_from/",
+    "salon:transactionscript": "ts-node script.ts https://www.salon.com/2013/05/11/the_modern_history_of_swearing_where_all_the_dirtiest_words_come_from/"    
   },
   "keywords": [],
   "author": "",

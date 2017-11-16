@@ -13,7 +13,7 @@ if (process.argv[2]) {
 }
 
 Rp({
-    startURL,
+    uri: startURL,
     transform: load
 }).then(function ($: any) {
     var bodyText = $.text();
