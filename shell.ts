@@ -6,7 +6,7 @@ const load = require("cheerio").load;
 
 const startURL = process.argv[2] || "https://withouttheloop.com";
 
-Core.find(startURL, URLToBody)
+Core.rate(startURL, URLToBody)
     .then(report)
     .then(write)
     .catch(console.error);
@@ -19,7 +19,8 @@ function URLToBody(url: string) {
 }
 
 function report({ rating, toGo, writeFile }: Core.Report) {
-    console.log(`${startURL} has rating ${rating}. ${toGo} more required to level up. Write file ${writeFile}`);
+    console.log(`${startURL} has rating ${rating}. 
+                 ${toGo} more required to level up. Write file ${writeFile}`);
     return writeFile;
 }
 

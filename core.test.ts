@@ -32,7 +32,7 @@ function URLToBody(url: string) {
             And odd.txt should not be written
     */
     async function cleanPage() {
-        const report = await Core.find("http://cleanwebpage.madeupdomain", URLToBody);
+        const report = await Core.rate("http://cleanwebpage.madeupdomain", URLToBody);
         Assert.deepEqual(report, { rating: 'A', toGo: 1, writeFile: false });
     },
 
@@ -45,7 +45,7 @@ function URLToBody(url: string) {
         And odd.txt should not be written
     */
     async function slightlyDodgyPage() {
-        const report = await Core.find("http://abitdodgy.madeupdomain", URLToBody);
+        const report = await Core.rate("http://abitdodgy.madeupdomain", URLToBody);
         Assert.deepEqual(report, { rating: 'C', toGo: 8, writeFile: true });
     },
     

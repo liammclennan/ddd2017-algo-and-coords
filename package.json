@@ -6,12 +6,16 @@
   "scripts": {
     "test": "ts-node core.test.ts",
     "salon": "ts-node shell.ts https://www.salon.com/2013/05/11/the_modern_history_of_swearing_where_all_the_dirtiest_words_come_from/",
-    "salon:transactionscript": "ts-node script.ts https://www.salon.com/2013/05/11/the_modern_history_of_swearing_where_all_the_dirtiest_words_come_from/"    
+    "salon:transactionscript": "ts-node script.ts https://www.salon.com/2013/05/11/the_modern_history_of_swearing_where_all_the_dirtiest_words_come_from/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/request-promise": "^4.1.39"
+  },
+  "dependencies": {
+    "request-promise": "^4.2.2",
+    "underscore": "^1.8.3"
   }
 }

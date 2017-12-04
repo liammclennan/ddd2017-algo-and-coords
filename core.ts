@@ -1,18 +1,19 @@
 const badWords: string[] = require('./words.json').words;
 
+type Grade = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
 export interface Report {
-    rating: string;
+    rating: Grade;
     toGo: number;
     writeFile: boolean;
 }
 
-export async function find(
-            url: string, 
+export async function rate(
+            url: string,
             URLToBody: (url: string) => any
-        ) {
+        ): Promise<Report> {
     const $ = await URLToBody(url);
     const badWords = findBadWord($.text());
-    return rate(badWords);
+    return calulateReport(badWords);
 }
 
 function findBadWord(text: string) {
@@ -22,7 +23,7 @@ function findBadWord(text: string) {
     return badWordsFound;
 }
 
-function rate(words: string[]) : Report {
+function calulateReport(words: string[]) : Report {
     const badWordCountIsOdd = words.length % 2 === 1;
 
     const getGradeAndToGo = (numberOfWords: number) => {
@@ -38,7 +39,7 @@ function rate(words: string[]) : Report {
         if (!range) { 
             throw new Error(`Number of bad words ${numberOfWords} does not map to a grade`);
         }
-        return { rating: range.rating, toGo: (range.to - numberOfWords) + 1 }
+        return { rating: range.rating as Grade, toGo: (range.to - numberOfWords) + 1 }
     };
 
     return {
